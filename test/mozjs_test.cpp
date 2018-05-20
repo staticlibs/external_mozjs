@@ -79,7 +79,7 @@ int main(int argc, const char *argv[]) {
             JS_InitStandardClasses(cx, global);
 
 //            const char *script = "'cafe\u0301'.normalize() + ' ' + 'caf\u00E9'.normalize()";
-            const char *script = "42 + 1";
+            const char *script = "String(42 + 1)";
             const char *filename = "noname";
             int lineno = 1;
             JS::CompileOptions opts(cx);
@@ -90,9 +90,8 @@ int main(int argc, const char *argv[]) {
         }
 
         JSString* str = rval.toString();
-        auto str_ptr = JS_EncodeString(cx, str));
+        auto str_ptr = JS_EncodeString(cx, str);
         res.append(str_ptr);
-        JS_free(str_ptr);
     }
 
     JS_DestroyContext(cx);

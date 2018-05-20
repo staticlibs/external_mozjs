@@ -39,6 +39,9 @@ target_include_directories ( mozjs_test BEFORE PRIVATE
         ${${PROJECT_NAME}_DEPS_PC_INCLUDE_DIRS} )
 target_link_libraries ( mozjs_test PRIVATE
         mozjs )
+target_compile_options ( mozjs_test PRIVATE
+        -Wno-unused-parameter
+        -Wno-missing-field-initializers )
 
 # register test
 enable_testing ( )

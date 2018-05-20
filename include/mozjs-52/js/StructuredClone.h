@@ -230,7 +230,8 @@ public:
     JSStructuredCloneData& operator=(JSStructuredCloneData&& other) = default;
     ~JSStructuredCloneData();
 
-    using BufferList::BufferList;
+//    todo: fixme for 4.7
+//    using BufferList::BufferList;
 };
 
 /** Note: if the *data contains transferable objects, it can be read only once. */
