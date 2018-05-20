@@ -1,0 +1,17 @@
+--- moz.build	2018-05-20 12:48:40.005929752 +0100
++++ moz.build	2018-05-20 12:35:36.790062239 +0100
+@@ -67,7 +67,13 @@
+     'js-confdefs.h',
+ ]
+ 
+-if not CONFIG['JS_STANDALONE']:
++if CONFIG['JS_STANDALONE']:
++    DEFINES['IMPL_MFBT'] = True
++    USE_LIBS += [
++        'mfbt',
++        'mozglue',
++    ]
++else:
+     LIBRARY_DEFINES['MOZ_HAS_MOZGLUE'] = True
+ 
+     CONFIGURE_SUBST_FILES += [
